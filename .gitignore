@@ -1,0 +1,7 @@
+.vscode
+node_modules
+package-lock.json
+/dist/index.html
+/story/modules/main.min.css
+/story/modules/story.bundle.js
+/src/js/config.json
