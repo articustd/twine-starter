@@ -1,2 +1,7 @@
 sugarcube-2:
   macros:
+    progressivecontent:
+      name: progressivecontent
+      container: true
+    nextcontent:
+      name: nextcontent

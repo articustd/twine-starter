@@ -4,3 +4,9 @@
 @@color:red;
 !!WARNING
 This is a fresh version of the Twine Starter@@
+
+/* <<progressivecontent>>
+First
+<<nextcontent 1 "Next">>
+Second
+<</progressivecontent>> */

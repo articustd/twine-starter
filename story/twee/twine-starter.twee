@@ -4,6 +4,7 @@ Twine Starter
 
 :: StoryData {"position":"0,125"}
 {
+	"ifid": "F733E47C-4086-4260-B6A3-FEA30211A0DA",
 	"format": "SugarCube",
 	"format-version": "2.34.1",
 	"start": "Start",
