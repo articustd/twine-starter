@@ -6,6 +6,7 @@ import templates from './template'
 import { logger } from '@util/Logging'
 import { loadData, saveData } from './saveSystem'
 import _ from 'lodash'
+import { migrate } from './migration/index'
 
 Config = {
 	...Config, ...storyConfig, saves: {
@@ -22,10 +23,10 @@ setup.ImagePath = "assets/";
 ((Config, State, Story, Engine, Dialog, $document) => {
 	// Append Fork Awesome to document head
 	$(document.head).append('<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css" integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">')
-
+	let version = '0.1.0'
 	// Set State Variables
 	variables().debug = Config.debug
-	variables().version = 'Pre-Alpha'
+	variables().version = version
 
 	// Config Auto Load if not on Start passage
 	$(document).on(':storyready', function (ev) {
@@ -58,6 +59,7 @@ setup.ImagePath = "assets/";
 	// Config loading
 	Save.onLoad.add(function (save) {
 		logger('Loading...')
+		migrate(save, version)
 		loadData(save.GameData)
 	})
 })(Config, State, Story, Engine, Dialog, $(document));
